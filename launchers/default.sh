@@ -13,7 +13,11 @@ dt-launchfile-init
 # NOTE: Use `dt-exec COMMAND` to run the main process (blocking process)
 
 # launching app
-dt-exec echo "This is an empty launch script. Update it to launch your application."
+# TODO: When actually running on duckiebot, comment out next 2 lines since roscore is already running on duckiebot
+roscore &
+sleep 5
+dt-exec rosrun my_package my_publisher_node.py
+dt-exec rosrun my_package my_subscriber_node.py
 
 
 # ----------------------------------------------------------------------------
